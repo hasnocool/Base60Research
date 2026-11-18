@@ -29,9 +29,13 @@ def adjudicate(evidence: EvidenceRecord, policy: AdjudicationPolicy | None = Non
         "null_tests_passed", "multiplicity_controlled",
     )
     fatal_failure = False
+    fatal_incomplete = False
     for gate in fatal_gates:
-        if record(gate, required=True) is CheckStatus.FAIL:
+        status = record(gate, required=True)
+        if status is CheckStatus.FAIL:
             fatal_failure = True
+        elif status is not CheckStatus.PASS:
+            fatal_incomplete = True
 
     artifact_status = record(policy.artifact_gate)
     conventional_status = record(policy.conventional_gate)
@@ -43,6 +47,9 @@ def adjudicate(evidence: EvidenceRecord, policy: AdjudicationPolicy | None = Non
     if fatal_failure:
         classification = "NOT_SUPPORTED"
         reasons.insert(0, "A preregistered validity or primary-evidence gate failed.")
+    elif fatal_incomplete:
+        classification = "UNRESOLVED_CANDIDATE"
+        reasons.insert(0, "A foundational validity or primary-evidence check is missing or inconclusive.")
     elif artifact_status is CheckStatus.PASS:
         classification = "REPRESENTATION_ARTIFACT"
         reasons.insert(0, "A preregistered diagnostic confirmed representation-induced distortion.")
