@@ -10,6 +10,12 @@ The central question is not "does this look like base-60?" It is:
 
 Base-12 and base-60 are analytical representations to test, not privileged assumptions about nature.
 
+## AI is advisory; evidence adjudication is deterministic
+
+AI may propose hypotheses, suggest datasets, draft analysis code and explain outputs. It must never decide whether a discovery has occurred or assign or upgrade an evidence classification. A separate deterministic Evidence Adjudication Engine applies versioned, inspectable rules to structured statistical evidence. Missing evidence cannot count as a pass, and human overrides must be separately attributed and audited.
+
+See [AI Research Governance and Evidence Adjudication](AI_RESEARCH_GOVERNANCE.md) for responsibilities, evidence contracts, decision gates, integrity boundaries and acceptance tests.
+
 ## Required finding classifications
 
 Every candidate relationship receives one of four explicit outcomes. These are evidence labels, not claims about ultimate truth.
@@ -114,7 +120,10 @@ src/base60research/
   validation.py       grouped splits, rolling-origin and replication
   statistics.py       effect sizes, uncertainty and multiplicity control
   discovery_graph.py  cross-domain relationships and evidence graph
-  findings.py         classification rules and evidence records
+  evidence.py         structured statistical evidence and gate schemas
+  adjudication.py     deterministic classification; no AI dependency
+  policy.py           versioned domain-specific evidence gates
+  audit.py             immutable decision traces and evidence digests
   reports.py           auditable reports and comparison tables
 ```
 
@@ -159,6 +168,7 @@ The first implementation should be a small, composable pipeline rather than a la
 5. **Representation invariance test:** a physical relationship expressed in different units or valid coordinate systems should retain its underlying dimensionless result within numerical tolerance.
 6. **Replication test:** a candidate that exists only in the discovery dataset must be downgraded when it fails independent replication.
 7. **Known-baseline test:** when a conventional model explains the data as well as the candidate representation, the finding must be labelled explained by established mathematics/science, not a Base-60 discovery.
+8. **AI boundary test:** an AI-supplied label or confidence score cannot change the adjudicator's decision; missing evidence cannot satisfy a gate.
 
 ## Definition of scientific value
 
