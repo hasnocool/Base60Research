@@ -90,3 +90,10 @@ def test_adjudicator_has_no_llm_dependency():
 def test_invalid_not_applicable_check_requires_justification():
     with pytest.raises(ValueError, match="justification"):
         CheckResult(CheckStatus.NOT_APPLICABLE, "Not relevant.")
+
+def test_incomplete_foundational_evidence_cannot_claim_established_explanation():
+    checks = robust_checks()
+    checks["provenance_valid"] = check(CheckStatus.NOT_RUN)
+    checks["conventional_explanation_adequate"] = check(CheckStatus.PASS, "Known model explains effect.")
+    checks["incremental_advantage_supported"] = check(CheckStatus.FAIL, "No incremental gain.")
+    assert adjudicate(evidence(checks)).classification == "UNRESOLVED_CANDIDATE"
