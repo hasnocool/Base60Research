@@ -97,8 +97,12 @@ Each run writes `summary.json`, `metrics.json`, `experiment_config.json`, and PN
 - [x] Experiment registry covering the 45 proposed investigations.
 - [x] Synthetic harmonic, interference, gear synchronization and coupled-oscillator experiments.
 - [x] Reproducible plots, JSON reports, CSV analysis and discovery scan.
-- [ ] Domain-specific real-data adapters and independent replication packs.
+- [x] Cross-disciplinary discovery platform architecture and evidence classifications.
+- [ ] Typed hypothesis/dataset/evidence schemas and reproducible run manifests.
+- [ ] Representation tournament and conventional-explanation/null-model engine.
+- [ ] Cross-domain evidence graph and independent replication packs.
+- [ ] Domain-specific real-data adapters.
 - [ ] Interactive dashboard and experiment builder.
 - [ ] Physical lab acquisition adapters (audio interface, accelerometer, electrical measurements) with calibration metadata.
 
-See `docs/RESEARCH_PLAN.md` and `docs/EXPERIMENT_CATALOG.md` for the full plan.
+See [the full research plan](docs/RESEARCH_PLAN.md), [45-experiment catalog](docs/EXPERIMENT_CATALOG.md), and [cross-disciplinary discovery platform design](docs/DISCOVERY_PLATFORM.md).
