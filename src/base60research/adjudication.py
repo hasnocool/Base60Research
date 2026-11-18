@@ -34,15 +34,16 @@ def adjudicate(evidence: EvidenceRecord, policy: AdjudicationPolicy | None = Non
         status = record(gate, required=True)
         if status is CheckStatus.FAIL:
             fatal_failure = True
-        elif status is not CheckStatus.PASS:
+        elif not (
+            status is CheckStatus.NOT_APPLICABLE and gate in policy.allow_not_applicable
+        ) and status is not CheckStatus.PASS:
             fatal_incomplete = True
 
     artifact_status = record(policy.artifact_gate)
     conventional_status = record(policy.conventional_gate)
     incremental_status = record(policy.incremental_advantage_gate)
     remaining = tuple(g for g in policy.required_gates if g not in fatal_gates)
-    for gate in remaining:
-        record(gate, required=True)
+    remaining_statuses = {gate: record(gate, required=True) for gate in remaining}
 
     if fatal_failure:
         classification = "NOT_SUPPORTED"
@@ -53,7 +54,11 @@ def adjudicate(evidence: EvidenceRecord, policy: AdjudicationPolicy | None = Non
     elif artifact_status is CheckStatus.PASS:
         classification = "REPRESENTATION_ARTIFACT"
         reasons.insert(0, "A preregistered diagnostic confirmed representation-induced distortion.")
-    elif conventional_status is CheckStatus.PASS and incremental_status is CheckStatus.FAIL:
+    elif (
+        conventional_status is CheckStatus.PASS
+        and incremental_status is CheckStatus.FAIL
+        and remaining_statuses.get("conventional_comparison_complete") is CheckStatus.PASS
+    ):
         classification = "ESTABLISHED_EXPLANATION"
         reasons.insert(0, "A conventional explanation is adequate and incremental advantage failed.")
     else:
