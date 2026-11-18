@@ -97,3 +97,17 @@ def test_incomplete_foundational_evidence_cannot_claim_established_explanation()
     checks["conventional_explanation_adequate"] = check(CheckStatus.PASS, "Known model explains effect.")
     checks["incremental_advantage_supported"] = check(CheckStatus.FAIL, "No incremental gain.")
     assert adjudicate(evidence(checks)).classification == "UNRESOLVED_CANDIDATE"
+
+def test_conventional_explanation_requires_completed_baseline_comparison():
+    checks = robust_checks()
+    checks["conventional_explanation_adequate"] = check(CheckStatus.PASS, "Known model explains effect.")
+    checks["incremental_advantage_supported"] = check(CheckStatus.FAIL, "No incremental gain.")
+    checks["conventional_comparison_complete"] = check(CheckStatus.NOT_RUN)
+    assert adjudicate(evidence(checks)).classification == "UNRESOLVED_CANDIDATE"
+
+
+def test_preregistered_not_applicable_foundational_gate_is_policy_controlled():
+    checks = robust_checks()
+    checks["provenance_valid"] = check(CheckStatus.NOT_APPLICABLE)
+    policy = AdjudicationPolicy(allow_not_applicable=("provenance_valid",))
+    assert adjudicate(evidence(checks), policy).classification == "ROBUST_CROSS_DOMAIN_CANDIDATE"
