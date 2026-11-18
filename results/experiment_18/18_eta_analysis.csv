@@ -1,0 +1,8 @@
+property,value
+rational,1/24
+base60,"0;2,U"
+base10,0.041(6)
+base12,0.06
+terminating_in_60,True
+period_in_60,
+note,"1/24 = 0;2,30 in sexagesimal (2/60 + 30/3600 = 1/30 + 1/120 = 1/24)"

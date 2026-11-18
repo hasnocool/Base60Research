@@ -1,0 +1,4 @@
+prime_class,count,avg_closure_period,max_closure_period,min_closure_period,avg_lcm_denominator,max_lcm_denominator
+2_3_5_smooth,21,15.428571428571429,45,1,15.428571428571429,45
+prime_7_11_13,1,77.0,77,77,77.0,77
+mixed,5,91.8,187,28,91.8,187

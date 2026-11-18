@@ -1,0 +1,14 @@
+{
+  "schema_version": 2,
+  "active_work_id": "codex:base12-base60-laboratory",
+  "works": {
+    "codex:base12-base60-laboratory": {
+      "work_id": "codex:base12-base60-laboratory",
+      "active_plan": ".omo/plans/base12-base60-laboratory.md",
+      "plan_name": "base12-base60-laboratory",
+      "session_ids": ["codex:base12-base60-laboratory"],
+      "status": "completed",
+      "worktree_path": null
+    }
+  }
+}

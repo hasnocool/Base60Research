@@ -1,0 +1,4 @@
+congruence,status,checked_count,failures
+p_5n_plus_4_mod_5,CONFIRMED,10,0
+p_7n_plus_5_mod_7,CONFIRMED,7,0
+p_11n_plus_6_mod_11,CONFIRMED,5,0

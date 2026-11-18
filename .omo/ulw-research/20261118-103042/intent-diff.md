@@ -1,0 +1,7 @@
+| intent_id | expected truth | observed reality | diff | violated invariant | intent source | supporting observations | status | linked claim ids |
+|---|---|---|---|---|---|---|---|---|
+| INT-01 | Paper updated with all experiment findings 15-26 | Paper exists but only covers experiments 1-10, missing 15-26 findings | Paper missing 16 experiments' findings | Paper completeness | User request | Existing paper only has experiments 1-10, experiments 15-26 implemented | PENDING | C-01, C-02, C-03 |
+| INT-02 | New practical applications/simulations section | No practical applications section exists | Missing entire applications section | Paper completeness | User request | No practical applications section exists | PENDING | C-04, C-05 |
+| INT-03 | New experiment directions researched | 7 new directions identified, 6 implemented, 1 deprioritized | 7 new directions identified | Research completeness | User request | 7 new directions from literature search | PENDING | C-05, C-06 |
+| INT-03 | Digital simulations section | No simulations section | Missing simulations section | Paper completeness | User request | No digital simulations section | PENDING | C-05, C-06 |
+| INT-04 | All claims verified by code | Most claims verified, some pending | Some claims need verification | Verification completeness | ulw-research Phase 3 | verify_delta_mod60.py, verify_smooth_fft_claim.py, verify_partition_congruence.py exist | PENDING | C-07, C-08, C-08 |

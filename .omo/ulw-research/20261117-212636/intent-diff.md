@@ -1,0 +1,6 @@
+| intent_id | expected truth | observed reality | diff | violated invariant | intent source | supporting observations | status | linked claim ids |
+|-----------|----------------|------------------|------|---------------------|---------------|--------------------------|--------|------------------|
+| INT-01 | Paper updated with all experiment 15-21 findings | Paper exists but needs update to include Babylonian, smooth FFT, direct conversion, modular forms, 3D Lissajous, cognitive load | partial — paper needs revision | none | User intent: update paper with new findings | experiments 15-21 results, findings docs | unknown | C-01..C-07 |
+| INT-02 | New research directions identified for expanding experiments | 7 directions from previous wave, 6 implemented | partial — need more literature search | none | User intent: research new ways to expand | ulw-research 20261117-191907 session | unknown | C-08..C-14 |
+| INT-03 | All claims verified by code execution | Previous wave verified 3 claims; new experiments need verification | pending | none | ulw-research Phase 3 | verify_delta_mod60.py, verify_smooth_fft_claim.py, verify_partition_congruence.py | unknown | C-15..C-20 |
+| INT-04 | Paper passes visual QA and proofread gates | Not yet done | pending | none | Phase 5 delivery | none yet | unknown | C-21 |
