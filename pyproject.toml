@@ -1,0 +1,29 @@
+# pyproject.toml
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "base60research"
+version = "0.1.0"
+description = "Reproducible comparative research across base-12, base-60 and conventional mathematics"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = ["numpy>=2.0", "scipy>=1.13", "matplotlib>=3.9", "pandas>=2.2"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.3", "ruff>=0.6"]
+
+[project.scripts]
+base60 = "base60research.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
