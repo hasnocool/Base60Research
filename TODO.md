@@ -13,13 +13,13 @@
 - [x] AI advisory boundary and deterministic evidence-adjudication governance specification.
 
 ## Priority 1 — Evidence governance and trustworthy records
-- [ ] Implement typed evidence, gate-result, policy and decision-trace schemas.
-- [ ] Implement deterministic adjudication module with no AI/LLM dependency.
+- [x] Implement typed evidence, gate-result, policy and decision-trace schemas.
+- [x] Implement deterministic adjudication module with no AI/LLM dependency.
 - [ ] Add explicit states: pass, fail, inconclusive, not_run and not_applicable.
 - [ ] Add immutable hypothesis preregistration, run manifests and evidence digests.
 - [ ] Keep AI advisory interfaces read-only with respect to classifications.
 - [ ] Add append-only audit records and separately attributed human overrides.
-- [ ] Test adversarial cases: AI-supplied labels, missing replication, invalid provenance, leaked test data, cherry-picked ratios and failed baselines.
+- [ ] Test adversarial cases: AI-supplied labels, missing replication, invalid provenance, leaked test data, cherry-picked ratios and failed baselines. Initial adversarial suite added; expand as evidence schema grows.
 
 ## Priority 2 — Representation tournament and conventional explanations
 - [ ] Compare native/continuous, base-10, base-12, base-24, base-30, base-60 and base-360 representations where meaningful.
